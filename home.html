@@ -1,0 +1,1059 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>COVID-19</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,900&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <style>
+            #body
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #000;
+            }
+            #head
+            {
+                position: relative;
+                margin: 20px 20px 0 0;
+                font-size: 3.4em;
+                font-weight: 900;
+                color: #fff;
+                z-index: 1;
+                overflow: hidden;
+                font-family: 'Poppins', sans-serif;
+            }
+            #head:before
+            {
+                content: '';
+                position: absolute;
+                left: -20%;
+                width: 120%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent 0%, #000 5%, #000 100%);
+                animation: animate 5.5s linear forwards infinite;
+                animation-delay: 2s;
+            }
+            @keyframes animate
+            {
+                0%
+                {
+                    left: -20%;
+                }
+                100%
+                {
+                    left: 110%;
+                }
+            }
+            #c
+            {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                background: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: consolas;
+            }
+            .container
+            {
+                width: 1000px;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+            }
+            .container .card
+            {
+                position: relative;
+            }
+            .container .card .face
+            {
+                width: 300px;
+                height: 200px;
+                transition: 0.5s;
+            }
+            .container .card .face.face1
+            {
+                position: relative;
+                background: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                transform: translateY(100px);
+            }
+            .container .card:hover .face.face1
+            {
+                background: #ff0057;
+                transform: translateY(0);
+            }
+            .container .card .face.face1 .content
+            {
+                opacity: 0.2;
+                transition: 0.5s;
+            }
+            .container .card:hover .face.face1 .content
+            {
+                opacity: 1;
+            }
+            .container .card .face.face1 .content img
+            {
+                max-width: 100px;
+                margin-left: 100px;
+            }
+            .container .card .face.face1 .content h3
+            {
+                margin: 10px 0 0;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+                font-size: 1.5em;
+            }
+            .container .card .face.face2
+            {
+                position: relative;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+                box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+                transform: translateY(-100px);
+            }
+            .container .card:hover .face.face2
+            {
+                transform: translateY(0);
+            }
+            header
+            {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: 0.6s;
+                padding: 40px 100px;
+                z-index: 100000;
+                font-family: 'Poppins', sans-serif;
+            }
+            header .logo
+            {
+                position: relative;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+                font-size: 2em;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition: 0.6s;
+            }
+            header ul
+            {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            header ul li
+            {
+                position: relative;
+                list-style: none;
+            }
+            header ul li a
+            {
+                position: relative;
+                margin: 0 15px;
+                text-decoration: none;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 500px;
+                transition: 0.6s;
+            }
+            header.sticky
+            {
+                padding: 5px 100px;
+                background: #fff;
+            }
+            header.sticky .logo
+            {
+                color: red;
+            }
+            header.sticky ul li a
+            {
+                color: #000;
+            }
+            #ques
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #00d0ff;
+            }
+            .container1
+            {
+                width: 1100px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                grid-gap: 15px;
+                margin: 50px auto;
+                font-family: 'Poppins', sans-serif;
+            }
+            .container1 .card1
+            {
+                position: relative;
+                width: 300px;
+                height: 450px;
+                margin: 0 auto;
+                background: #fff;
+                transition: 0.5s;
+            }
+            .container1 .card1:hover
+            {
+                box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+            }
+            .container1 .card1 .f
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container1 .card1 .f.f1
+            {
+                box-sizing: border-box;
+                padding: 20px;
+                text-align: center;
+                background: #fff;
+                color: #013d4a;
+            }
+            .container1 .card1 .f.f1 h3
+            {
+                margin-top: 110px;
+            }
+            .container1 .card1 .f.f2
+            {
+                background: #013d4a;
+                transition: 0.5s;
+            }
+            .container1 .card1:hover .f.f2
+            {
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                top: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: transparent;
+                border: 2px solid #013d4a;
+            }
+            .container1 .card1 .f.f2 h2
+            {
+                margin: 0;
+                padding: 0;
+                font-size: 10em;
+                color: #fff;
+                transition: 0.5s;
+            }
+            .container1 .card1:hover .f.f2 h2
+            {
+                color: #013d4a;
+                font-size: 2em;
+            }
+            #fact
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                font-family: 'Poppins', sans-serif;
+            }
+            .container2
+            {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                width: 1000px;
+            }
+            .container2 .box
+            {
+                position: relative;
+                width: 300px;
+                height: 400px;
+                overflow: hidden;
+            }
+            .container2 .box .imgbx
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: 1.5s ease-in-out;
+                background: #111;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .container2 .box:hover .imgbx
+            {
+                transform: translateY(-100%);
+            }
+            .container2 .box .layer
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: 1.5s ease-in-out;
+            }
+            .container2 .box .layer.layer1
+            {
+                background: #0096ff;
+                transform: translateY(100%);
+            }
+            .container2 .box:hover .layer.layer1
+            {
+                background: #0096ff;
+                transform: translateY(-100%);
+            }
+            .container2 .box .layer.layer2
+            {
+                background: #90ff00;
+                transform: translateY(200%);
+            }
+            .container2 .box:hover .layer.layer2
+            {
+                transform: translateY(-100%);
+            } 
+            .container2 .box .contentbx
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #111;
+                color: #fff;
+                transition: 1.5s ease-in-out;
+                transform: translateY(300%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .container2 .box:hover .contentbx
+            {
+                transform: translateY(0);
+            }
+            .container2 .box .contentbx div
+            {
+                transition: 2s ease-in-out;
+                transform: translateY(400%);
+            }
+            .container2 .box:hover .contentbx div
+            {
+                transform: translateY(0);
+            }
+            #flex
+            {
+                display: flex;
+                justify-content: center;
+                align-self: center;
+                min-height: 100vh;
+                background: #222;
+                font-family: 'Poppins', sans-serif;
+            }
+            .container3
+            {
+                position: relative;
+                max-width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+                grid-template-rows: minmax(100px,auto);
+                margin: 40px;
+                grid-auto-flow: dense;
+                grid-gap: 10px;
+            }
+            .container3 .box
+            {
+                background: #333;
+                padding: 20px;
+                display: grid;
+                font-size: 20px;
+                place-items: center;
+                text-align: center;
+                color: #fff;
+                transition: 0.5s;
+            }
+            .container3 .box:hover
+            {
+                background: #e91e63;
+            }
+            .container3 .box img
+            {
+                position: relative;
+                max-width: 100px;
+                margin-bottom: 10px;
+            }
+            .container3 .box:nth-child(1)
+            {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            .container3 .box:nth-child(2)
+            {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+            .container3 .box:nth-child(4)
+            {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+            .container3 .box:nth-child(7)
+            {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+            @media (max-width: 991px)
+            {
+                .container3
+                {
+                    grid-template-columns: repeat(auto-fill, minmax(50%,1fr));
+                    grid-template-rows: minmax(auto,auto);
+                }
+                .container3 .box
+                {
+                    grid-column: unset !important;
+                    grid-row: unset !important;
+                }       
+            }
+            .logo span
+            {
+                animation: animate1 1s linear infinite;
+            }
+            .logo span:nth-child(1)
+            {
+                animation-delay: 0s;
+            }
+            .logo span:nth-child(2)
+            {
+                animation-delay: 0.2s;
+            }
+            .logo span:nth-child(3)
+            {
+                animation-delay: 0.4s;
+            }
+            .logo span:nth-child(4)
+            {
+                animation-delay: 0.6s;
+            }
+            .logo span:nth-child(5)
+            {
+                animation-delay: 0.8s;
+            }
+            .logo span:nth-child(6)
+            {
+                animation-delay: 1s;
+            }
+            .logo span:nth-child(7)
+            {
+                animation-delay: 1.2s;
+            }
+            .logo span:nth-child(8)
+            {
+                animation-delay: 1.4s;
+            }
+            @keyframes animate1
+            {
+                0%
+                {
+                    color: blue;
+                    text-shadow: none;
+                }
+                100%
+                {
+                    color: red;
+                    text-shadow: 0 0 10px red,0 0 20px red,0 0 40px red,0 0 80px red,0 0 120px red,0 0 160px red,0 0 200px red,0 0 240px red;
+                }
+            }
+            .news
+            {
+                margin: 0;
+                padding: 0;
+                background: url(bg.jpg);
+                background-size: cover;
+                font-family: 'Poppins', sans-serif;
+            }
+            .news section
+            {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .news section .scroll
+            {
+                width: 100%;
+                display: flex;
+            }
+            .news section .scroll div
+            {
+                color: #000;
+                font-size: 4em;
+                background: yellow;
+                white-space: nowrap;
+                font-weight: 900;
+                text-transform: uppercase;
+                animation: a 40s linear infinite;
+                animation-delay: -40s;
+            }
+            .news section .scroll div span
+            {
+                -webkit-text-stroke: 2px #000;
+                color: transparent;
+            }
+            .news section .scroll div:nth-child(2)
+            {
+                animation: a2 40s linear infinite;
+                animation-delay: -20s;
+            }
+            @keyframes a
+            {
+                0%
+                {
+                    transform: translateX(100%);
+                }
+                100%
+                {
+                    transform: translateX(-100%);
+                }
+            }
+            @keyframes a2
+            {
+                0%
+                {
+                    transform: translateX(0);
+                }
+                100%
+                {
+                    transform: translateX(-200%);
+                }
+            }
+            .news section .scroll.text1
+            {
+                transform: rotate(30deg) translateY(200px) translateX(-200px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            }
+            .news section .scroll.text2
+            {
+                transform: rotate(-25deg) translateY(120px) translateX(-200px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            }
+            .news section .scroll.text3
+            {
+                transform: rotate(25deg) translateY(300px) translateX(-200px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            }
+            .news section .scroll.text4
+            {
+                transform: rotate(-2deg) translateY(-150px) translateX(-200px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            }
+            .news section .scroll.text5
+            {
+                transform: rotate(5deg) translateY(250px) translateX(-200px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">
+                <span>C</span>
+                <span>O</span>
+                <span>V</span>
+                <span>I</span>
+                <span>D</span>
+                <span>-</span>
+                <span>1</span>
+                <span>9</span>
+            </a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#pre">Precautions</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <div id="body">
+            <h2 id="head">We <span style="color: red;">must</span> unite against <span style="color: red;">COVID-19</span></h2>
+        </div>
+        <div id="c"> 
+            <table>
+                <tr>
+                    <td>
+                        <h1 style="text-align: center; align-items: center; margin-top: 50px;">Follow these<span style="color: red;"> 8 precautions</span> to strike-out the spread of<br> <span style="color: red;">CORONAVIRUS</span></h1>
+                    </td>
+                </tr>
+                <tr>        
+                <td>
+            <div class="container">
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="wash.png" style="height: 100px; width: 100px;">
+                            <h3><span style="color: green">Wash Your Hands</span> more Frequently</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>Note just wash but<span style="color: red"> wash your hands thoroughly with an alcohol-based hand rub</span> or wash them with soap and water. It kills the viruses that may be on your hands.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="sddefault.jpg" style="height: 100px; width: 100px;">
+                            <h3>Don't go that close to the one who is coughing or sneezing</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p><span style="color: red">Try maintaining at least 3-foot distance</span> between yourself and anyone who is coughing or sneezing. If you are too close, you can breathe in the droplets, including the <span style="color: red">COVID-19 virus</span> if the person coughing has the disease.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="nose.jpg" style="height: 100px; width: 100px;">
+                            <h3>Shun touching eyes, nose and mouth</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>Your hands touch several surface and can pick up viruses.<span style="color: red"> Once contaminated, hands can transfer the virus to your eyes, nose or mouth.</span> The virus can enter your body from there and can make you sick.</p>
+                    </div>
+                </div>
+            </div>
+                </td>
+                </tr>
+                <tr>
+                <td>
+            <div class="container" id="pre">
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="cute-kids-boy-wearing-face-mask-health-vector-164556892.jpg" style="height: 100px; width: 100px;">
+                            <h3>When and where to use a mask?</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>Wear a mask if you are<span style="color: red"> taking care of a person with suspected Coronavirus infection</span>
+                            <br>
+                            Wear a mask if you are coughing and sneezing
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="9567751_stock-vector-asian-teen-girl-boy-wearing-a-face-mask-in-the-city-coughing-vector-isolated-cartoon-illustration.jpg" style="height: 100px; width: 100px;">
+                            <h3>Be a Hero! Take responsibility to protect others</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>Avoid spitting in public<br>Avoid close contact when experiencing cough and fever<br>If suffering from fever, cough and difficulty breathing seek medical care immediately</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="sneezing.jpg" style="height: 100px; width: 150px;">
+                            <h3>You need to follow respiratory hygiene</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>You must cover your mouth and nose with your bent elbow or tissue when you cough and sneeze.<span style="color: red"> Dispose of the used tissue immediately.</span></p>
+                    </div>
+                </div>
+            </div>
+                </td>
+                </tr>
+                <tr>
+                <td>
+            <div class="container">
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="Managing-Stress-1.jpg" style="height: 100px; width: 100px;">
+                            <h3>Cope up with stress and mental condition!</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p>It's normal to be stressed,<span style="color: red"> talk to your friends and family!</span> That helps indeed! Maintain a healthy lifestyle-<span style="color: red"> including proper diet, sleep and exercise.</span> Don't use <span style="color: red">smoking, alcohol or other drugs</span> to deal with emotions</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <img src="icon-4-500x500.width-320.png" style="height: 100px; width: 100px;">
+                            <h3>Stay Informed via internet and newspaper</h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <p><span style="color: red">Stay informed</span> on the latest developments about Coronavirus. Follow the advice given by your healthcare provider and local public health authority or your employer on how to protect yourself and others.</p>
+                    </div>
+                </div>
+            </div>
+                </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="ques">
+            <table>
+                <tr>
+                    <td>
+                        <h1 style="text-align: center; align-items: center; margin-top: 50px; font-family: 'Poppins', sans-serif; color: #013d4a;">Most<span style="color: red;"> Frequently</span> asked questions about<br> <span style="color: red;">CORONAVIRUS</span></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="container container1">
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>If Traveling on a plane, How do I stay safe?</h3>
+                                        <p>It is recommended to avoid traveling to countries that are highly infacted. Stay safe by using hand sanitizer that contains 60%-90% alcohol or antiseptic hand wipes, which you can also use to wipe down arm rests, remote controls at your seat and your tray table.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>01</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>What is the incubation period for COVID-19?</h3>
+                                        <p>The "incubation period" means the time between catching the virus and beginning to have symptoms of the disease. According to WHO, the incubation period for COVID-19 ranges from 1-14 days, most commanly around five days.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>02</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>Can humans become infected with COVID-19 from an animal source?</h3>
+                                        <p>Possible animal source of COVID-19 have not yet been confirmed, So protect yourself from visiting animal markets and direct contacts with animal. Practice good food safely, avoid consuming raw or undercooked animal products.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>03</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="container container1">
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>What does self-isolation involve?</h3>
+                                        <p>Self-isolation involve staying indoors like not going to work, school or other public places, and avoiding contact with other people for 14 days. You also stay away from people in your home. Stay away from the pets - if unavoidable, wash your hands before and after contact.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>04</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>Can the COVID-19 virus spread through drinking water?</h3>
+                                        <p>The COVID-19 virus has not been detected in drinking water. Conventional water treatment methods that use filtration and disinfection, such as those in most municipal drinking water system, should remove or inactivate the virus that causes COVID-19.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>05</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>Are there any medicines that cure COVID-19?</h3>
+                                        <p>There is no evidence that current medicine can prevent or cure the disease. While some western, traditional or home remedies may provide comfort and alleviate symptoms of COVID-19 but WHO does not recommend self-medicaion and several ongoing clinical trials.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>06</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="container container1">
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>Is it safe for mother to breastfeed if she is infected with COVID-19?</h3>
+                                        <p>No evidence of the virus has been found in the breast milk of women with COVID-19. ECDC suggests that all pregnant women follow the same precautions for the prevention of COVID-19, including regular handwashing and self-isolating in case of any symptoms.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>07</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>Should I wear a medical mask to protect Myself?</h3>
+                                        <p>Wear a mask if you are showing COVID-19 symptoms or in case contact with someone infected with COVID-19. WHO urges people to use masks wisely and Indian Health Ministry officials also suggest when a person maintains effective social distace, a mask is not needed.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>08</h2>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="f f1">
+                                    <div class="con">
+                                        <h3>How long can the COVID-19 last on surfaces?</h3>
+                                        <p>There is no certainly about how long the virus that causes COVID-19 survives on surface, but it behaves like other coronaviruses. WHO suggests that coronavirus may remain on suface for a few hour or up to several days and this may vary under different conditions.</p>
+                                    </div>
+                                </div>
+                                <div class="f f2">
+                                    <h2>09</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="fact" style="background: #fff;">
+            <table>
+                <tr>
+                    <td>
+                        <h1 style="text-align: center; align-items: center; margin-top: 50px; font-family: 'Poppins', sans-serif;">RUMOUR VS FACT<span style="color: red;"> COVID-19</span><br> <span style="font-size: 15px; color: red;">STAY SAFE, STAY INFORMED</span></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="container2">
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>Wearing a face mask prevents from getting infected by COVID-19</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>Wear a mask if you are showing COVID-19 symptoms or in case contact with someone infected with COVID-19. WHO urges people to use masks wisely and Indian Health Ministry officials also suggest when a person maintains effective social distace, a mask is not needed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>Gargling with luke-warm water and salt prevents COVID-19</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>In an email to AFP,the WHO said,'We have seen no convincing evidence that rinsing one's mouth with diluted saline water will provide protection from this disease'. In a press release, UNICEF has also clarified that the message circulating on social media is not true.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>COVID-19 can survive up to 12 hrs on metal, 9 hrs on clothes, and 10 minutes on the human hands.</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>According to WHO, there is no evidence if Coronavirus may remain on surfaces for a few hours or upto a few days, this may vary under different conditions like type of surface, temperature or humidity of the environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><br><br></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="container2">
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>Hot temperature will stop the COVID-19 outbreak</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>"It is not known whether the spread of COVID-19 will decrease when the weather becomes warmer. There is much more to learn about the transmissibility,Severity, and other feature associated with COVID-19 and investigations are ongoing", according to the CDC and WHO.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>COVID-19 is nothing worse than winter flu</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>Considering the current estimates of a roughly 1% fatality rate of COVID-19, it is about 10 times deadlier than seasonal flu, says Dr. Bruce Aylward, head of a WHO-China joint mission and veteran epidemiologist.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="imgbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">RUMOUR</h2>
+                                    <p>Garlic intake can help in curing COVID-19</p>
+                                </div>
+                            </div>
+                            <div class="layer layer1"></div>
+                            <div class="layer layer2"></div>
+                            <div class="contentbx">
+                                <div>
+                                    <h2 style="font-size: 3.4em; color: red;">FACT</h2>
+                                    <p>In response to this rumor, WHO says it is a "healthy food that may have some antimicrobial properties", but there's no evidence that eating garlic can protect people from the new coronavirus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+        <br>
+        <br>
+        <div id="flex">
+        <div class="container3">
+            <div class="box">
+                <div class="content">
+                    <img src="washing-hand.png">
+                    <p>Wash hands with soap and water after touching animals and animal products.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="cold.png">
+                    <p>When coughing and sneezing cover mouth and nose with flexed elbow or tissue.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="flight.png">
+                    <p>Avoid travel if you have a fever and cough.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="cooking.png">
+                    <p>Eat only well cooked food.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="first-aid-kit.png">
+                    <p>If you have a fever, cough and difficulty in breathing seek medical care early.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="fever.png">
+                    <p>Avoid close contact with animals that are sick.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <img src="medical-mask.png">
+                    <p>If you are coughing or sneezing, wear a mask and must know how to use it and dispose of it properly.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="news">
+            <section>
+                <div class="scroll text1">
+                    <div>
+                        Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>
+                    </div>
+                </div>
+                <div class="scroll text2">
+                    <div>
+                        Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>
+                    </div>
+                </div>
+                <div class="scroll text3">
+                    <div>
+                        Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>
+                    </div>
+                </div>
+                <div class="scroll text4">
+                    <div>
+                        Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>
+                    </div>
+                </div>
+                <div class="scroll text5">
+                    <div>
+                        Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>Country <span>Lockdown - </span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var header=document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY>0);
+            });
+        </script>
+    </body>
+</html>
